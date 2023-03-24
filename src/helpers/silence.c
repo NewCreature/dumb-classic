@@ -18,7 +18,7 @@
  */
 
 #include <string.h>
-#include "dumb.h"
+#include "dumb-classic.h"
 
 
 

@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>//might not be necessary later; required for memset
 
-#include "dumb.h"
+#include "dumb-classic.h"
 #include "internal/it.h"
 
 

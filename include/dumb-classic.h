@@ -8,13 +8,13 @@
  * /_______/ynamic    \____/niversal  /__\  /____\usic   /|  .  . ibliotheque
  *                                                      /  \
  *                                                     / .  \
- * dumb.h - The user header file for DUMB.            / / \  \
+ * dumb-classic.h - The user header file for DUMB.            / / \  \
  *                                                   | <  /   \_
  * Include this file in any of your files in         |  \/ /\   /
  * which you wish to use the DUMB functions           \_  /  > /
  * and variables.                                       | \ / /
  *                                                      |  ' /
- * Allegro users, you will probably want aldumb.h.       \__/
+ * Allegro users, you will probably want aldumb-classic.h.       \__/
  */
 
 #ifndef DUMB_H

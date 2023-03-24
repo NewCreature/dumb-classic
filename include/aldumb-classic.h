@@ -8,11 +8,11 @@
  * /_______/ynamic    \____/niversal  /__\  /____\usic   /|  .  . ibliotheque
  *                                                      /  \
  *                                                     / .  \
- * aldumb.h - The user header file for DUMB with      / / \  \
+ * aldumb-classic.h - The user header file for DUMB with      / / \  \
  *            Allegro.                               | <  /   \_
  *                                                   |  \/ /\   /
  * Include this file if you wish to use DUMB          \_  /  > /
- * with Allegro. It will include dumb.h for you,        | \ / /
+ * with Allegro. It will include dumb-classic.h for you,        | \ / /
  * and provide extra functionality such as audio        |  ' /
  * stream and datafile integration.                      \__/
  */
@@ -23,7 +23,7 @@
 
 #include <allegro.h>
 
-#include "dumb.h"
+#include "dumb-classic.h"
 
 
 #ifdef __cplusplus

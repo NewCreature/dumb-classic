@@ -77,7 +77,7 @@ a function:
 
    DUH *dumb_load_it(const char *filename);
 
-You do not know what the DUH struct actually contains; dumb.h and aldumb.h
+You do not know what the DUH struct actually contains; dumb-classic.h and aldumb-classic.h
 only give the compiler enough information to deal with pointers to them. DUMB
 will take charge of everything that happens inside a DUH struct.
 

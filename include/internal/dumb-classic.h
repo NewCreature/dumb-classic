@@ -8,7 +8,7 @@
  * /_______/ynamic    \____/niversal  /__\  /____\usic   /|  .  . ibliotheque
  *                                                      /  \
  *                                                     / .  \
- * internal/dumb.h - DUMB's internal declarations.    / / \  \
+ * internal/dumb-classic.h - DUMB's internal declarations.    / / \  \
  *                                                   | <  /   \_
  * This header file provides access to the           |  \/ /\   /
  * internal structure of DUMB, and is liable          \_  /  > /
@@ -19,7 +19,7 @@
  *
  * Seriously. You don't need access to anything in this file. All right, you
  * probably do actually. But if you use it, you will be relying on a specific
- * version of DUMB, so please check DUMB_VERSION defined in dumb.h. Please
+ * version of DUMB, so please check DUMB_VERSION defined in dumb-classic.h. Please
  * contact the authors so that we can provide a public API for what you need.
  */
 

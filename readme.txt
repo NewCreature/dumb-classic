@@ -368,7 +368,7 @@ DUMB_DECLARE_DEPRECATED on the command line.
 
 Do not compile the .inc files separately.
 
-You may need to edit dumb.h and add your own definition for LONG_LONG. It
+You may need to edit dumb-classic.h and add your own definition for LONG_LONG. It
 should be a 64-bit integer. If you do this, please see if you can add a check
 for your compiler so that it still works with other compilers.
 
@@ -381,7 +381,7 @@ DUMB, please let me know!)
 I recommend building two versions of the library, one with DEBUGMODE defined
 and debugging information included, and the other with compiler optimisation
 enabled. If you can install DUMB system-wide so that your projects, and other
-people's, can simply #include <dumb.h> or <aldumb.h> and link with libraries
+people's, can simply #include <dumb-classic.h> or <aldumb-classic.h> and link with libraries
 by simple name with no path, then that is ideal.
 
 If you successfully port DUMB to a new platform, please let me know!

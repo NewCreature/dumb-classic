@@ -19,7 +19,7 @@
 
 #include <stdlib.h>
 
-#include "dumb.h"
+#include "dumb-classic.h"
 
 
 

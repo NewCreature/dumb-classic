@@ -43,9 +43,9 @@ then follow the instructions further down for adapting your code.
    following line to the top of your source file (or at the top of each file
    where you wish to use DUMB):
 
-      #include <aldumb.h>
+      #include <aldumb-classic.h>
 
-   If you do not have Allegro or do not wish to use it, use dumb.h instead.
+   If you do not have Allegro or do not wish to use it, use dumb-classic.h instead.
 
 
 2. You need to link with DUMB's library file or files. If you are compiling

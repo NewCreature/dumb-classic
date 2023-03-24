@@ -21,7 +21,7 @@
 
 #include <allegro.h>
 
-#include "aldumb.h"
+#include "aldumb-classic.h"
 
 
 

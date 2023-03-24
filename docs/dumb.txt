@@ -23,7 +23,7 @@
 ***********************************
 
 
-dumb.h
+dumb-classic.h
 
    Include this if you only want the core DUMB library functions. You will
    be able to load music files and render them into memory buffers at your
@@ -39,7 +39,7 @@ dumb.h
    Debugging: -ldumbd  or  /link dumbd.lib
 
 
-aldumb.h
+aldumb-classic.h
 
    Include this if you wish to use DUMB with Allegro. This will provide you
    with functions to play DUHs back through Allegro's audio streams and embed

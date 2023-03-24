@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "dumb.h"
+#include "dumb-classic.h"
 #include "internal/it.h"
 
 

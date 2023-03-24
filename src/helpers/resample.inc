@@ -36,7 +36,7 @@
  * resamplers.
  *
  * Since "long long" is a gcc-specific extension, we use LONG_LONG instead,
- * defined in dumb.h. We may investigate later what code MSVC generates, but
+ * defined in dumb-classic.h. We may investigate later what code MSVC generates, but
  * if it seems too slow then we suggest you use a good compiler.
  *
  * FIXME: these comments are somewhat out of date now.

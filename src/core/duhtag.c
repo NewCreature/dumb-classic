@@ -19,8 +19,8 @@
 
 #include <string.h>
 
-#include "dumb.h"
-#include "internal/dumb.h"
+#include "dumb-classic.h"
+#include "internal/dumb-classic.h"
 
 
 

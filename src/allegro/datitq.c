@@ -19,8 +19,8 @@
 
 #include <allegro.h>
 
-#include "aldumb.h"
-#include "internal/aldumb.h"
+#include "aldumb-classic.h"
+#include "internal/aldumb-classic.h"
 
 
 

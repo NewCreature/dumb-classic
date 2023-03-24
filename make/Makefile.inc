@@ -14,22 +14,22 @@ $(CORE_LIB_FILE): CFLAGS := $(CFLAGS)
 $(ALLEGRO_LIB_FILE): CFLAGS := $(CFLAGS)
 
 
-$(OBJDIR)/%.o: src/core/%.c include/dumb.h include/internal/dumb.h
+$(OBJDIR)/%.o: src/core/%.c include/dumb-classic.h include/internal/dumb-classic.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(OBJDIR)/%.o: src/helpers/%.c include/dumb.h
+$(OBJDIR)/%.o: src/helpers/%.c include/dumb-classic.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(OBJDIR)/resample.o: src/helpers/resample.inc src/helpers/resamp2.inc src/helpers/resamp3.inc
 
-$(OBJDIR)/%.o: src/it/%.c include/dumb.h include/internal/it.h
+$(OBJDIR)/%.o: src/it/%.c include/dumb-classic.h include/internal/it.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(OBJDIR)/%.o: src/sigtypes/%.c include/dumb.h
+$(OBJDIR)/%.o: src/sigtypes/%.c include/dumb-classic.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(OBJDIR)/%.o: src/allegro/%.c include/aldumb.h include/dumb.h \
-                      include/internal/aldumb.h include/internal/dumb.h
+$(OBJDIR)/%.o: src/allegro/%.c include/aldumb-classic.h include/dumb-classic.h \
+                      include/internal/aldumb-classic.h include/internal/dumb-classic.h
 	$(CC) $(CFLAGS) $(WFLAGS_ALLEGRO) -c -o $@ $<
 
 $(CORE_LIB_FILE): $(CORE_OBJECTS)

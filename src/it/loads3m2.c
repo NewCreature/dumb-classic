@@ -17,7 +17,7 @@
  *                                                       \__/
  */
 
-#include "dumb.h"
+#include "dumb-classic.h"
 
 
 
