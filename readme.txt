@@ -18,10 +18,25 @@
  */
 
 
+**************************
+*** DUMB Classic Notes ***
+**************************
+
+This fork is intended to help maintain old Allegro 4 projects that use DUMB to
+play music. A '-classic' suffix has been added to the include and library names
+to avoid conflicts with the newer DUMB 2.x versions.
+
+Old projects that use DUMB with Allegro PACKFILEs will not work with DUMB 2.x.
+For these kinds of projects I recommend adding an #ifdef and compiler flag to
+help make these projects work with classic Allegro 4 + DUMB installations as
+well as modern setups that have DUMB 2.x and DUMB Classic installed.
+
+DUMB Classic will also with with Allegro Legacy.
+
+
 ********************
 *** Introduction ***
 ********************
-
 
 Thank you for downloading DUMB v0.9.3! You should have the following
 documentation:
@@ -47,7 +62,6 @@ recommend you start with howto.txt.
 ****************
 *** Features ***
 ****************
-
 
 Here is the statutory feature list:
 
@@ -86,344 +100,38 @@ Here is the statutory feature list:
   DUMB more approachable to people who aren't using Allegro, please contact
   me)
 
-- Makefile provided for DJGPP, MinGW, Linux, BeOS and Mac OS X
+- CMake build script makes it easy to build on any platform that has CMake
 
-- Project files provided for MSVC 6
-
-- Autotools-based configure script available as a separate download for
-  masochists
-
-- Code should port anywhere that has a 32-bit C compiler; instructions on
-  compiling it manually are available further down
+- Code should port anywhere that has a C compiler; instructions on compiling it
+  manually are available further down
 
 
 *********************
 *** What you need ***
 *********************
 
-
-To use DUMB, you need a 32-bit C compiler (GCC and MSVC are fine). If you
-have Allegro, DUMB can integrate with its audio streams and datafiles, making
-your life easier. If you do not wish to use Allegro, you will have to do some
-work to get music playing back. The 'dumbplay' example program requires
-Allegro.
-
-   Allegro - http://alleg.sf.net/
-
-
-**********************************************
-*** How to set DUMB up with DJGPP or MinGW ***
-**********************************************
-
-
-You should have got the .zip version. If for some reason you got the .tar.gz
-version instead, you may have to convert make/config.bat to DOS text file
-format. WinZip does this automatically by default. Otherwise, loading it into
-MS EDIT and saving it again should do the trick (but do not do this to the
-Makefiles as it destroys tabs). You will have to do the same for any files
-you want to view in Windows Notepad. If you have problems, just go and
-download the .zip instead.
-
-Make sure you preserved the directory structure when you extracted DUMB from
-the archive. Most unzipping programs will do this by default, but pkunzip
-requires you to pass -d. If not, please delete DUMB and extract it again
-properly.
-
-If you are using Windows, open an MS-DOS Prompt or a Windows Command Line.
-Change to the directory into which you unzipped DUMB.
-
-If you are using MinGW (and you haven't renamed 'mingw32-make'), type:
-
-   mingw32-make
-
-Otherwise, type the following:
-
-   make
-
-DUMB will ask you whether you wish to compile for DJGPP or MinGW. Then it
-will ask you whether you want support for Allegro. (You have to have made and
-installed Allegro's optimised library for this to work.) Finally, it will
-compile optimised and debugging builds of DUMB, along with the example
-programs. When it has finished, run one of the following to install the
-libraries:
-
-   make install
-   mingw32-make install
-
-All done! If you ever need the configuration again (e.g. if you compiled for
-DJGPP before and you want to compile for MinGW now), run one of the
-following:
-
-   make config
-   mingw32-make config
-
-See the comments in the Makefile for other targets.
-
-Note: the Makefile will only work properly if you have COMSPEC or ComSpec set
-to point to command.com or cmd.exe. If you set it to point to a Unix-style
-shell, the Makefile won't work.
-
-Please let me know if you have any trouble.
-
-As an alternative, MSYS users may attempt to use the configure script,
-available in dumb-0.9.3-autotools.tar.gz. This has been found to work without
-Allegro, and is untested with Allegro. I should appreciate feedback from
-anyone else who tries this. I do not recommend its use, partly because it
-creates dynamically linked libraries and I don't know how to stop it from
-doing that (see the section on compiling DUMB manually), and partly because
-autotools are plain evil.
-
-Scroll down for information on the example programs. Refer to docs/howto.txt
-when you are ready to start programming with DUMB. If you use DUMB in a game,
-let me know - I might decide to place a link to your game on DUMB's website!
-
-
-******************************************************
-*** How to set DUMB up with Microsoft Visual C++ 6 ***
-******************************************************
-
-
-If you have a newer version of Microsoft Visual C++ or Visual Something that
-supports C++, please try these instructions and let me know if it works.
-
-You should have got the .zip version. If for some reason you got the .tar.gz
-version instead, you may have to convert some files to DOS text file format.
-WinZip does this automatically by default. Otherwise, loading such files into
-MS EDIT and saving them again should do the trick. You will have to do this
-for any files you want to view in Windows Notepad. If you have problems, just
-go and download the .zip instead.
-
-Make sure you preserved the directory structure when you extracted DUMB from
-the archive. Most unzipping programs will do this by default, but pkunzip
-requires you to pass -d. If not, please delete DUMB and extract it again
-properly.
-
-DUMB comes with a workspace Microsoft Visual C++ 6, containing projects for
-the DUMB core, the Allegro interface library and each of the examples. The
-first thing you might want to do is load the workspace up and have a look
-around. You will find it in the dumb\vc6 directory under the name dumb.dsw.
-Note that the aldumb and dumbplay projects require Allegro, so they won't
-work if you don't have Allegro. Nevertheless, dumbplay is the best-commented
-of the examples, so do have a look.
-
-When you are ready to add DUMB to your project, follow these instructions:
-
-1. Open your project in VC++.
-2. Select Project|Insert Project into Workspace...
-3. Navigate to the dumb\vc6\dumb directory and select dumb.dsp.
-   Alternatively, if you know that you are statically linking with a library
-   that uses the statically linked multithreaded runtime (/MT), you may wish
-   to select dumb_static.dsp in the dumb_static subdirectory instead.
-4. Select Build|Set Active Configuration..., and reselect one of your
-   project's configurations.
-5. Select Project|Dependencies... and ensure your project is dependent on
-   DUMB.
-6. Select Project|Settings..., Settings for: All Configurations, C/C++ tab,
-   Preprocessor category. Add the DUMB include directory to the Additional
-   Include Directories box.
-7. Ensure that for all the projects in the workspace (or more likely just all
-   the projects in a particular dependency chain) the run-time libraries are
-   the same. That's in Project|Settings, C/C++ tab, Code generation category,
-   Use run-time library dropdown. The settings for Release and Debug are
-   separate, so you'll have to change them one at a time. Exactly which run-
-   time library you use will depend on what you need; it doesn't appear that
-   DUMB has any particular requirements, so set it to whatever you're using
-   now. (It will have to be /MD, the multithreaded DLL library, if you are
-   statically linking with Allegro. If you are dynamically linking with
-   Allegro than it doesn't matter.)
-8. If you are using Allegro, do some or all of the above for the aldumb.dsp
-   project in the aldumb directory too.
-
-Good thing you only have to do all that once ... or twice ...
-
-If you have the Intel compiler installed, it will - well, should - be used to
-compile DUMB. The only setting I [Tom Seddon] added is /QxiM. This allows the
-compiler to use PPro and MMX instructions, and so when compiling with Intel
-the resultant EXE will require a Pentium II or greater. I don't think this is
-unreasonable. After all, it is 2003 :)
-
-[Note from Ben: the Intel compiler is evil! It makes AMD processors look bad!
-Patch it or boycott it or something!]
-
-If you don't have the Intel compiler, VC will compile DUMB as normal.
-
-This project file and these instructions were provided by Tom Seddon (I hope
-I got his name right; I had to guess it from his e-mail address!). Chad
-Austin has since changed the project files around, and I've just attempted to
-hack them to incorporate new source files. I've also tried to update the
-instructions using guesswork and some knowledge of Visual J++ (you heard me).
-The instructions and the project files are to this day untested by me. If you
-have problems, check the download page at http://dumb.sf.net/ to see if they
-are addressed; failing that, direct queries to me and I'll try to figure them
-out.
-
-If you have any comments at all on how the VC6 projects are laid out, or how
-the instructions could be improved, I should be really grateful to hear them.
-I am a perfectionist, after all. :)
-
-Scroll down for information on the example programs. When you are ready to
-start using DUMB, refer to docs/howto.txt. If you use DUMB in a game, let me
-know - I might decide to place a link to your game on DUMB's website!
-
-
-******************************************************
-*** How to set DUMB up on Linux, BeOS and Mac OS X ***
-******************************************************
-
-
-You should have got the .tar.gz version. If for some reason you got the .zip
-version instead, you may have to strip all characters with ASCII code 13 from
-some of the text files. If you have problems, just go and download the
-.tar.gz instead.
-
-You have two options. There is a Makefile which should cope with most
-systems. The first option is to use this default Makefile, and the procedure
-is explained below. The second option is to download
-dumb-0.9.3-autotools.tar.gz, extract it over the installation, run
-./configure and use the generated Makefile. Users who choose to do this are
-left to their own devices but advised to read the information at the end of
-this section. I strongly recommend the first option.
-
-If you are not using the configure script, the procedure is as follows.
-
-First, run the following command as a normal user:
-
-   make
-
-You will be asked whether you want Allegro support. Then, unless you are on
-BeOS, you will be asked where you'd like DUMB to install its headers,
-libraries and examples (which will go in the include/, lib/ and bin/
-subdirectories of the prefix you specify). BeOS has fixed locations for these
-files. You may use shell variables here, e.g. $HOME or ${HOME}, but ~ will
-not work. Once you have specified these pieces of information, the optimised
-and debugging builds of DUMB will be compiled, along with the examples. When
-it has finished, you can install them with:
-
-   make install
-
-You may need to be root for this to work. It depends on the prefix you chose.
-
-Note: the Makefile will only work if COMSPEC and ComSpec are both undefined.
-If either of these is defined, the Makefile will try to build for a Windows
-system, and will fail.
-
-Please let me know if you have any trouble.
-
-Scroll down for information on the example programs. Refer to docs/howto.txt
-when you are ready to start programming with DUMB. If you use DUMB in a game,
-let me know - I might decide to place a link to your game on DUMB's website!
-
-Important information for users of the configure script follows.
-
-The Makefile generated by the configure script creates dynamically linked
-libraries, and I don't know how to stop it from doing so. See the section
-below on building DUMB manually for why I recommend linking DUMB statically.
-However, if you choose to use the configure script, note the following.
-
-The default Makefile is a copy of Makefile.rdy (short for 'ready'), and it
-must exist with the name Makefile.rdy in order to work. The configure script
-will overwrite Makefile, so if you want the default Makefile back, just run:
-
-   cp Makefile.rdy Makefile
-
-Do not use a symlink, as that would result in Makefile.rdy getting
-overwritten next time the configure script is run!
-
-You can also access the usual build system by passing '-f Makefile.rdy' to
-Make.
-
-
-********************************************************
-*** How to build DUMB manually if nothing else works ***
-********************************************************
-
-
-Those porting to platforms without floating point support should be aware
-that DUMB does use floating point operations but not in the inner loops. They
-are used for volume and note pitch calculations, and they are used when
-initialising the filter algorithm for given cut-off and resonance values.
-Please let me know if this is a problem for you. If there is enough demand, I
-may be able to eliminate one or both of these cases.
-
-All of the library source code may be found in the src/ subdirectory. There
-are headers in the include/ subdirectory, and src/helpers/resample.c also
-#includes some .inc files in its own directory.
-
-There are four subdirectories under src/. For projects not using Allegro, you
-will need all the files in src/core/, src/helpers/ and src/it/. If you are
-using Allegro, you will want the src/allegro/ subdirectory too. For
-consistency with the other build systems, the contents of src/allegro/ should
-be compiled into a separate library.
-
-I recommend static-linking DUMB, since the version information is done via
-macros and the API has a tendency to change. If you static-link, then once
-your program is in binary form, you can be sure that changes to the installed
-version of DUMB won't cause it to malfuction. It is my fault that the API has
-been so unstable. Sorry!
-
-Compile each .c file separately. As mentioned above, you will need to specify
-two places to look for #include files: the include/ directory and the source
-file's own directory. You will also need to define the symbol
-DUMB_DECLARE_DEPRECATED on the command line.
-
-Do not compile the .inc files separately.
-
-You may need to edit dumb-classic.h and add your own definition for LONG_LONG. It
-should be a 64-bit integer. If you do this, please see if you can add a check
-for your compiler so that it still works with other compilers.
-
-DUMB has two build modes. If you define the symbol DEBUGMODE, some checks for
-programmer error will be incorporated into the library. Otherwise it will be
-built without any such checks. (DUMB will however always thoroughly check the
-validity of files it is loading. If you ever find a module file that crashes
-DUMB, please let me know!)
-
-I recommend building two versions of the library, one with DEBUGMODE defined
-and debugging information included, and the other with compiler optimisation
-enabled. If you can install DUMB system-wide so that your projects, and other
-people's, can simply #include <dumb-classic.h> or <aldumb-classic.h> and link with libraries
-by simple name with no path, then that is ideal.
-
-If you successfully port DUMB to a new platform, please let me know!
-
-
-****************************
-*** The example programs ***
-****************************
-
-
-Three example programs are provided. On DOS and Windows, you can find them in
-the examples subdirectory. On other systems they will be installed system-
-wide.
-
-dumbplay
-   This program will only be built if you have Allegro. Pass it the filename
-   of an IT, XM, S3M or MOD file, and it will play it. It's not a polished
-   player with real-time threading or anything - so don't complain about it
-   stuttering while you use other programs - but it does show DUMB's fidelity
-   nicely. You can control the playback quality by editing dumb.ini, which
-   must be in the current working directory. (This is a flaw for systems
-   where the program is installed system-wide, but it is non-fatal.) Have a
-   look at the examples/dumb.ini file for further information.
-
-dumbout
-   This program does not need Allegro. You can use it to stream an IT, XM,
-   S3M or MOD file to raw PCM. This can be used as input to an encoder like
-   oggenc (with appropriate command-line options), or it can be sent to a
-   .pcm file which can be read by any respectable waveform editor. This
-   program is also convenient for timing DUMB. Compare the time it takes to
-   render a module with the module's playing time! dumbout doesn't try to
-   read any configuration file; the options are set on the command line.
-
-dumb2wav
-   This program is much the same as dumbout, but it writes a .wav file with
-   the appropriate header. Thanks go to Chad Austin for this useful tool.
+To use DUMB, you need a C compiler (GCC and MSVC are fine). If you have
+Allegro, DUMB can integrate with its audio streams and datafiles, making your
+life easier. If you do not wish to use Allegro, you will have to do some work
+to get music playing back.
+
+   Allegro - https://liballeg.org
+   CMake   - https://cmake.org
+
+
+**********************************
+*** How to set up DUMB Classic ***
+**********************************
+
+Create an empty folder where DUMB Classic will be built. Navigate to that
+folder. Then type 'cmake ..' to configure the build script. When CMake
+completes its process, run 'make' followed by 'make install' to build DUMB
+Classic and install it on your system.
 
 
 *********************************************
 *** Downloading music or writing your own ***
 *********************************************
-
 
 If you would like to compose your own music modules, then this section should
 help get you started.
@@ -520,7 +228,6 @@ On the other hand, if you convert the file, the damage is permanent.
 *** Contact details ***
 ***********************
 
-
 If you have trouble with DUMB, or want to contact me for any other reason, my
 e-mail address is given below. Please do get in touch, even if I appear to
 have disappeared!
@@ -537,5 +244,13 @@ likely be arranged. Send me an e-mail.
 This is the conclusion.
 
 
+Original Author
+
 Ben Davis
 entheh@users.sf.net
+
+
+DUMB Classic Fork
+
+Todd Cope
+todd@tcubedsoftware.com

@@ -395,7 +395,7 @@ relevant information. So the least you can do is read it!
   support for such files is STILL untested.
 
 - Not all parts of DUMB's API are documented yet. You will find some
-  functions in dumb-classic.h which are not listed in docs/dumb.txt; the reason is
+  functions in classic.h which are not listed in docs/dumb.txt; the reason is
   that these functions still need work and will probably change. If you
   really, really want to use them, talk to me first (IRC EFnet #dumb is a
   good place for this; see readme.txt for details on using IRC). I intend to
@@ -437,7 +437,7 @@ Bye.
 
 This is a minor release that fixes a few bugs. One of these bugs, however,
 was pretty serious. dumb_register_dat_xm() was never coded! It was prototyped
-in aldumb-classic.h, so code would compile, but there would be an unresolved symbol
+in aldumb.h, so code would compile, but there would be an unresolved symbol
 at the linking stage. This has been fixed.
 
 Platforms other than Unix did not have a working 'make veryclean' target;
@@ -477,7 +477,7 @@ means the effect will now work properly when breaking to row 10 or greater.
 
 DUMB v0.8 had faulty release date constants; DUMB_MONTH and DUMB_DAY were
 swapped! For this reason, DUMB_DATE should not be compared against any date
-in 2002. This note has been added to docs/dumb.txt and also to dumb-classic.h.
+in 2002. This note has been added to docs/dumb.txt and also to dumb.h.
 
 Please scroll to the end and read the release notes for the first version,
 DUMB v0.7. Most of them apply equally to this release. However, the
